@@ -8,10 +8,33 @@
          </div>
          <div class="col-md-6">
             <h4>Links</h4>
+            {% if LINKS %}
+               {% for name, link in LINKS %}
+
+               {% if loop.first %}
+                  <ul class="list-unstyled" style="display:inline-block">
+               {% endif %}
+
+               {% if loop.index is divisibleby 5 %}
+                  </ul>
+                  <ul class="list-unstyled" style="display:inline-block; margin-left: 20%">
+               {% endif %}
+
+                     <li><a href="{{ link }}" target="_blank">{{ name }} </a></li>
+
+               {% if loop.last %}
+                  </ul>
+               {% endif %}
+
+               {% endfor %}
+
+            {% endif %}
+
+            <!--
             <ul class="list-unstyled" style="display:inline-block">
                <li><a href="" target="_blank">ROOT</a></li>
                <li><a href="" target="_blank">RIO</a></li>
-               <li><a href="" target="_blank">NSF S12</a></li>
+               <li><a href="" target="_blank">NSF SI2</a></li>
                <li><a href="" target="_blank">RooStats</a></li>
             </ul>
 
@@ -21,6 +44,8 @@
                <li><a href="" target="_blank">AstroPy</a></li>
                <li><a href="" target="_blank">scikit-learn</a></li>
             </ul>
+         -->
+
          </div>
          <div class="col-md-4">
             <h4>Contact</h4>
